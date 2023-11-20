@@ -18,7 +18,7 @@ import jakarta.persistence.Table;
 @Table(name = "jogos")
 public class Jogo {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTIFY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(nullable = true)
     private String titulo;
@@ -30,8 +30,8 @@ public class Jogo {
     @ManyToMany
     @JoinTable(
         name = "jogos_possuem_plataformas",
-        JoinColumns = @JoinColumn(name = "id_jogos"),
-        inverseJoinColumns = @JoinColumn(name = "id_plataforma"))
+        joinColumns = @JoinColumn(name = "id_jogos"),
+        inverseJoinColumns = @JoinColumn(name = "id_plataformas"))
     private Set<Plataforma> plataformas = new HashSet<>();
 
     public long getId() {

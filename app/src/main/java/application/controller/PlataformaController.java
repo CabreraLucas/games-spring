@@ -14,7 +14,7 @@ import application.repository.PlataformaRepository;
 
 @Controller
 @RequestMapping("/plataforma")
-public class CategoriaController {
+public class PlataformaController {
     @Autowired
     private PlataformaRepository plataformaRepo;
 

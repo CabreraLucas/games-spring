@@ -19,7 +19,7 @@ import application.repository.PlataformaRepository;
 
 @Controller
 @RequestMapping("/jogo")
-public class CategoriaController {
+public class JogoController {
     @Autowired
     private JogoRepository jogoRepo;
     @Autowired
@@ -52,7 +52,7 @@ public class CategoriaController {
             for(long p : idsPplataformas){
                 Optional<Plataforma> plataforma = plataformaRepo.findById(p);
                 if(plataforma.isPresent()){
-                    jogo.getPlataforma().add(plataforma.get());
+                    jogo.getPlataformas().add(plataforma.get());
                 }
             }
             jogoRepo.save(jogo);
@@ -80,7 +80,7 @@ public class CategoriaController {
     public String update(
         @RequestParam("id") long id, 
         @RequestParam("titulo") String titulo,
-        @RequestParam("categoria") long IdCategoria,
+        @RequestParam("categoria") long idCategoria,
         @RequestParam("plataformas") long[] idsPplataformas) {
 
         Optional<Jogo> jogo = jogoRepo.findById(id);

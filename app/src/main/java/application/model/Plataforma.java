@@ -16,7 +16,7 @@ import jakarta.persistence.Table;
 @Table(name = "plataformas")
 public class Plataforma {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTIFY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(unique = true, nullable = false)
     private String nome;
